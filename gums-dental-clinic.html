@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>GUMS Dental Clinic – Expert Dental Care in Sliema, Malta</title>
+<meta name="description" content="GUMS Dental Clinic in Sliema, Malta. Expert dental care including general dentistry, implants, whitening & cosmetic treatments. Book your appointment today."/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+  :root {
+    --white: #ffffff;
+    --off-white: #f7f9fc;
+    --blue: #1a6fa8;
+    --blue-light: #2e8dc5;
+    --teal: #28b6b0;
+    --teal-light: #e6f7f6;
+    --navy: #0d2b45;
+    --gray: #6b7280;
+    --gray-light: #e5eaf0;
+    --text: #1c2b3a;
+    --radius: 14px;
+    --shadow: 0 4px 32px rgba(26,111,168,0.10);
+    --shadow-lg: 0 12px 48px rgba(26,111,168,0.16);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(26,111,168,0.08);
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(26,111,168,0.12); }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 70px;
+  }
+  .logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
+  .logo-icon {
+    width: 38px; height: 38px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--blue), var(--teal));
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 1.1rem;
+  }
+  .logo-text { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--navy); }
+  .logo-text span { color: var(--teal); }
+  .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--text); font-size: .9rem; font-weight: 500; transition: color .2s; }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--blue), var(--teal));
+    color: #fff; border: none; padding: .55rem 1.4rem; border-radius: 50px;
+    font-size: .88rem; font-weight: 600; cursor: pointer; text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(40,182,176,0.35); }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: .4rem; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); margin: 5px 0; border-radius: 2px; transition: .3s; }
+  .mobile-menu {
+    display: none; flex-direction: column; padding: 1rem 2rem 1.5rem;
+    background: #fff; border-top: 1px solid var(--gray-light);
+  }
+  .mobile-menu a { padding: .75rem 0; text-decoration: none; color: var(--text); font-weight: 500; border-bottom: 1px solid var(--gray-light); }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu.open { display: flex; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e8f4fd 0%, #e6f7f6 60%, #f0faf9 100%);
+    display: flex; align-items: center;
+    padding: 100px 2rem 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -80px; right: -80px;
+    width: 480px; height: 480px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(40,182,176,0.18), transparent 70%);
+    animation: floatBubble 8s ease-in-out infinite;
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: -100px; left: -60px;
+    width: 360px; height: 360px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,111,168,0.12), transparent 70%);
+    animation: floatBubble 10s ease-in-out infinite reverse;
+  }
+  @keyframes floatBubble { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-20px) scale(1.04)} }
+  .hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: rgba(40,182,176,0.12); border: 1px solid rgba(40,182,176,0.3);
+    padding: .35rem 1rem; border-radius: 50px; margin-bottom: 1.5rem;
+    font-size: .8rem; font-weight: 600; color: var(--teal); letter-spacing: .05em;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 700; color: var(--navy); line-height: 1.15; margin-bottom: 1rem;
+    animation: fadeUp .8s ease both;
+  }
+  .hero h1 span { color: var(--teal); }
+  .hero p {
+    font-size: 1.1rem; color: var(--gray); line-height: 1.7; margin-bottom: 2rem;
+    animation: fadeUp .8s .15s ease both;
+  }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp .8s .25s ease both; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--blue), var(--teal));
+    color: #fff; border: none; padding: .85rem 2rem; border-radius: 50px;
+    font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none;
+    transition: transform .2s, box-shadow .2s; display: inline-flex; align-items: center; gap: .5rem;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(40,182,176,0.4); }
+  .btn-secondary {
+    background: #fff; color: var(--blue); border: 2px solid var(--blue);
+    padding: .85rem 2rem; border-radius: 50px; font-size: 1rem; font-weight: 600;
+    cursor: pointer; text-decoration: none; transition: all .2s;
+    display: inline-flex; align-items: center; gap: .5rem;
+  }
+  .btn-secondary:hover { background: var(--blue); color: #fff; }
+  .trust-badges { display: flex; gap: 1.2rem; margin-top: 2.5rem; flex-wrap: wrap; animation: fadeUp .8s .35s ease both; }
+  .trust-badge {
+    display: flex; align-items: center; gap: .5rem;
+    font-size: .82rem; font-weight: 500; color: var(--navy);
+    background: #fff; border-radius: 50px; padding: .45rem 1rem;
+    box-shadow: 0 2px 12px rgba(26,111,168,0.1);
+  }
+  .trust-badge i { color: var(--teal); font-size: .9rem; }
+  .hero-visual { position: relative; animation: fadeUp .8s .1s ease both; }
+  .hero-card {
+    background: #fff; border-radius: 24px; padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    position: relative; overflow: hidden;
+  }
+  .hero-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, var(--blue), var(--teal));
+  }
+  .hero-img-placeholder {
+    width: 100%; aspect-ratio: 4/3; border-radius: 14px;
+    background: linear-gradient(135deg, #c8e6f5, #b2ede9);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1rem; color: var(--blue);
+  }
+  .hero-img-placeholder i { font-size: 4rem; opacity: .6; }
+  .hero-img-placeholder p { font-weight: 500; opacity: .7; font-size: .9rem; }
+  .stat-row { display: flex; justify-content: space-between; margin-top: 1.5rem; gap: 1rem; }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--navy); }
+  .stat-label { font-size: .75rem; color: var(--gray); margin-top: .1rem; }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 90px 2rem; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block; background: var(--teal-light); color: var(--teal);
+    font-size: .78rem; font-weight: 600; letter-spacing: .08em;
+    padding: .3rem .9rem; border-radius: 50px; margin-bottom: 1rem; text-transform: uppercase;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700; color: var(--navy); margin-bottom: 1rem; line-height: 1.2;
+  }
+  .section-sub { font-size: 1.05rem; color: var(--gray); line-height: 1.7; max-width: 600px; }
+  .section-head { margin-bottom: 3.5rem; }
+  .section-head.center { text-align: center; }
+  .section-head.center .section-sub { margin: 0 auto; }
+
+  /* ── ABOUT ── */
+  .about { background: var(--off-white); }
+  .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-img {
+    background: linear-gradient(135deg, #c8e6f5, #b2ede9);
+    border-radius: 24px; aspect-ratio: 1; display: flex;
+    align-items: center; justify-content: center;
+    color: var(--blue); font-size: 5rem;
+    box-shadow: var(--shadow);
+    position: relative; overflow: hidden;
+  }
+  .about-img::after {
+    content: ''; position: absolute; bottom: -20px; right: -20px;
+    width: 140px; height: 140px; border-radius: 50%;
+    background: rgba(40,182,176,0.2);
+  }
+  .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+  .about-feature {
+    background: #fff; border-radius: var(--radius); padding: 1.2rem;
+    display: flex; align-items: flex-start; gap: .8rem;
+    box-shadow: 0 2px 12px rgba(26,111,168,0.06);
+  }
+  .about-feature-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--teal-light); display: flex; align-items: center; justify-content: center;
+    color: var(--teal); flex-shrink: 0; font-size: .95rem;
+  }
+  .about-feature h4 { font-size: .88rem; font-weight: 600; color: var(--navy); margin-bottom: .2rem; }
+  .about-feature p { font-size: .78rem; color: var(--gray); line-height: 1.5; }
+
+  /* ── SERVICES ── */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .service-card {
+    background: #fff; border-radius: var(--radius); padding: 2rem 1.5rem;
+    border: 1px solid var(--gray-light); transition: all .3s; position: relative; overflow: hidden;
+    cursor: pointer;
+  }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--teal));
+    transform: scaleX(0); transform-origin: left; transition: transform .3s;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: transparent; }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    background: var(--teal-light); display: flex; align-items: center; justify-content: center;
+    color: var(--teal); font-size: 1.4rem; margin-bottom: 1.2rem;
+    transition: background .3s, color .3s;
+  }
+  .service-card:hover .service-icon { background: linear-gradient(135deg, var(--blue), var(--teal)); color: #fff; }
+  .service-card h3 { font-size: 1.05rem; font-weight: 600; color: var(--navy); margin-bottom: .6rem; }
+  .service-card p { font-size: .88rem; color: var(--gray); line-height: 1.6; margin-bottom: 1rem; }
+  .learn-more { font-size: .85rem; font-weight: 600; color: var(--teal); text-decoration: none; display: inline-flex; align-items: center; gap: .3rem; }
+  .learn-more:hover { gap: .6rem; }
+
+  /* ── BOOKING ── */
+  .booking { background: linear-gradient(135deg, #e8f4fd, #e6f7f6); }
+  .booking-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .booking-info h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--navy); margin-bottom: 1rem; }
+  .booking-info p { color: var(--gray); line-height: 1.7; margin-bottom: 1.5rem; }
+  .booking-contact { display: flex; flex-direction: column; gap: .8rem; }
+  .booking-contact a {
+    display: flex; align-items: center; gap: .75rem;
+    text-decoration: none; color: var(--text); font-weight: 500;
+    padding: .9rem 1.2rem; background: #fff; border-radius: var(--radius);
+    box-shadow: 0 2px 12px rgba(26,111,168,0.08); transition: all .2s;
+  }
+  .booking-contact a:hover { box-shadow: var(--shadow); transform: translateX(4px); }
+  .booking-contact a i { color: var(--teal); width: 20px; }
+  .form-card {
+    background: #fff; border-radius: 20px; padding: 2.5rem;
+    box-shadow: var(--shadow-lg);
+  }
+  .form-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 1.5rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  label { display: block; font-size: .82rem; font-weight: 600; color: var(--navy); margin-bottom: .4rem; }
+  input, select, textarea {
+    width: 100%; padding: .75rem 1rem; border-radius: 10px;
+    border: 1.5px solid var(--gray-light); font-family: 'DM Sans', sans-serif;
+    font-size: .9rem; color: var(--text); transition: border .2s;
+    background: var(--off-white); outline: none;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--teal); background: #fff; }
+  textarea { resize: vertical; min-height: 90px; }
+  .btn-submit {
+    width: 100%; background: linear-gradient(135deg, var(--blue), var(--teal));
+    color: #fff; border: none; padding: 1rem; border-radius: 50px;
+    font-size: 1rem; font-weight: 600; cursor: pointer; transition: all .2s; margin-top: .5rem;
+  }
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(40,182,176,0.4); }
+  .form-success {
+    display: none; text-align: center; padding: 2rem;
+    animation: fadeUp .5s ease;
+  }
+  .form-success i { font-size: 3rem; color: var(--teal); margin-bottom: 1rem; }
+  .form-success h4 { color: var(--navy); font-size: 1.2rem; margin-bottom: .5rem; }
+  .form-success p { color: var(--gray); font-size: .9rem; }
+
+  /* ── HOURS ── */
+  .hours { background: var(--navy); color: #fff; }
+  .hours .section-title { color: #fff; }
+  .hours .section-sub { color: rgba(255,255,255,.65); }
+  .hours-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .hours-list { display: flex; flex-direction: column; gap: .6rem; margin-top: 1rem; }
+  .hours-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: .9rem 1.2rem; border-radius: 10px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+  }
+  .hours-item.closed { opacity: .5; }
+  .hours-day { font-weight: 500; font-size: .9rem; }
+  .hours-time { font-size: .85rem; color: var(--teal); font-weight: 600; }
+  .hours-visual {
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 1.5rem;
+  }
+  .clock-ring {
+    width: 180px; height: 180px; border-radius: 50%;
+    border: 3px solid rgba(40,182,176,0.3);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    background: radial-gradient(circle, rgba(40,182,176,0.08), transparent);
+  }
+  .clock-ring i { font-size: 3.5rem; color: var(--teal); }
+  .clock-text { text-align: center; color: rgba(255,255,255,.7); font-size: .9rem; }
+
+  /* ── LOCATION ── */
+  .location-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .map-container {
+    border-radius: 20px; overflow: hidden;
+    box-shadow: var(--shadow-lg); aspect-ratio: 4/3;
+    background: var(--gray-light);
+  }
+  .map-container iframe { width: 100%; height: 100%; border: none; display: block; }
+  .location-info { padding-top: 1rem; }
+  .location-detail {
+    display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start;
+  }
+  .location-detail-icon {
+    width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+    background: var(--teal-light); display: flex; align-items: center;
+    justify-content: center; color: var(--teal);
+  }
+  .location-detail h4 { font-weight: 600; color: var(--navy); margin-bottom: .2rem; }
+  .location-detail p, .location-detail a { color: var(--gray); font-size: .92rem; text-decoration: none; }
+  .location-detail a:hover { color: var(--teal); }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials { background: var(--off-white); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .testimonial-card {
+    background: #fff; border-radius: var(--radius); padding: 2rem;
+    box-shadow: 0 2px 16px rgba(26,111,168,0.07); border: 1px solid var(--gray-light);
+    transition: transform .3s, box-shadow .3s;
+  }
+  .testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .stars { color: #f59e0b; margin-bottom: 1rem; font-size: .9rem; }
+  .testimonial-text { font-size: .92rem; color: var(--gray); line-height: 1.7; margin-bottom: 1.5rem; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: .8rem; }
+  .author-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--teal));
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: 1rem; flex-shrink: 0;
+  }
+  .author-name { font-weight: 600; color: var(--navy); font-size: .9rem; }
+  .author-location { font-size: .78rem; color: var(--gray); }
+
+  /* ── FAQ ── */
+  .faq-list { max-width: 750px; margin: 0 auto; display: flex; flex-direction: column; gap: .8rem; }
+  .faq-item { background: #fff; border-radius: var(--radius); border: 1px solid var(--gray-light); overflow: hidden; }
+  .faq-q {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 1.5rem; cursor: pointer; font-weight: 600; color: var(--navy);
+    font-size: .95rem;
+  }
+  .faq-q i { color: var(--teal); transition: transform .3s; font-size: .85rem; }
+  .faq-item.open .faq-q i { transform: rotate(45deg); }
+  .faq-a { display: none; padding: 0 1.5rem 1.2rem; color: var(--gray); font-size: .9rem; line-height: 1.7; }
+  .faq-item.open .faq-a { display: block; }
+
+  /* ── CONTACT ── */
+  .contact { background: linear-gradient(135deg, #e8f4fd, #e6f7f6); }
+  .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .contact-card {
+    background: #fff; border-radius: var(--radius); padding: 2rem; text-align: center;
+    box-shadow: var(--shadow); transition: transform .3s;
+  }
+  .contact-card:hover { transform: translateY(-4px); }
+  .contact-icon {
+    width: 60px; height: 60px; border-radius: 16px; margin: 0 auto 1.2rem;
+    display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+  }
+  .contact-icon.blue { background: #e8f4fd; color: var(--blue); }
+  .contact-icon.teal { background: var(--teal-light); color: var(--teal); }
+  .contact-icon.green { background: #dcfce7; color: #16a34a; }
+  .contact-card h3 { font-weight: 600; color: var(--navy); margin-bottom: .5rem; }
+  .contact-card p, .contact-card a { color: var(--gray); font-size: .9rem; text-decoration: none; }
+  .contact-card a:hover { color: var(--teal); }
+  .contact-btn {
+    display: inline-block; margin-top: 1rem;
+    padding: .6rem 1.4rem; border-radius: 50px; font-size: .85rem; font-weight: 600;
+    text-decoration: none; transition: all .2s;
+  }
+  .contact-btn.blue-btn { background: var(--blue); color: #fff; }
+  .contact-btn.teal-btn { background: var(--teal); color: #fff; }
+  .contact-btn.wa-btn { background: #25d366; color: #fff; }
+  .contact-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,.15); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--navy); color: #fff; padding: 60px 2rem 30px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand p { color: rgba(255,255,255,.6); font-size: .88rem; line-height: 1.7; margin: 1rem 0; max-width: 260px; }
+  .footer-socials { display: flex; gap: .7rem; }
+  .footer-socials a {
+    width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,.2);
+    display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.7);
+    text-decoration: none; font-size: .85rem; transition: all .2s;
+  }
+  .footer-socials a:hover { background: var(--teal); border-color: var(--teal); color: #fff; }
+  .footer-col h4 { font-weight: 600; font-size: .9rem; margin-bottom: 1.2rem; color: #fff; letter-spacing: .04em; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+  .footer-col ul li a { color: rgba(255,255,255,.6); text-decoration: none; font-size: .85rem; transition: color .2s; }
+  .footer-col ul li a:hover { color: var(--teal); }
+  .footer-col ul li span { color: rgba(255,255,255,.6); font-size: .85rem; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; font-size: .82rem; color: rgba(255,255,255,.4); flex-wrap: wrap; gap: 1rem; }
+
+  /* ── FLOATING BTN ── */
+  .float-btn {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+    background: linear-gradient(135deg, var(--blue), var(--teal));
+    color: #fff; border: none; border-radius: 50px; padding: .85rem 1.6rem;
+    font-family: 'DM Sans', sans-serif; font-size: .9rem; font-weight: 600;
+    cursor: pointer; box-shadow: 0 6px 24px rgba(40,182,176,0.4);
+    display: flex; align-items: center; gap: .5rem;
+    animation: pulse 3s ease-in-out infinite;
+    text-decoration: none;
+  }
+  @keyframes pulse { 0%,100%{box-shadow:0 6px 24px rgba(40,182,176,0.4)} 50%{box-shadow:0 8px 32px rgba(40,182,176,0.65)} }
+  .float-btn:hover { transform: translateY(-3px); animation: none; box-shadow: 0 10px 32px rgba(40,182,176,0.55); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
+  @media (max-width: 768px) {
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: block; }
+    .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-visual { display: none; }
+    .about-inner, .booking-inner, .location-inner, .hours-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .services-grid, .testimonials-grid, .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .about-features { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .hours-visual { display: none; }
+  }
+
+  /* ── SCROLL ANIMATION ── */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon"><i class="fa-solid fa-tooth"></i></div>
+      <span class="logo-text">GUMS <span>Dental</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#booking">Booking</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#booking" class="nav-cta">Book Appointment</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#booking">Book Appointment</a>
+    <a href="#hours">Opening Hours</a>
+    <a href="#location">Location</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><i class="fa-solid fa-star"></i> Trusted Dental Care in Malta</div>
+      <h1>Your Smile,<br><span>Our Priority</span></h1>
+      <p>Expert dental care in the heart of Sliema. We combine cutting-edge technology with a gentle, patient-first approach to help you achieve a healthy, confident smile.</p>
+      <div class="hero-btns">
+        <a href="#booking" class="btn-primary"><i class="fa-regular fa-calendar-check"></i> Book Appointment</a>
+        <a href="tel:+35699698738" class="btn-secondary"><i class="fa-solid fa-phone"></i> Call Now</a>
+      </div>
+      <div class="trust-badges">
+        <div class="trust-badge"><i class="fa-solid fa-user-doctor"></i> Experienced Dentists</div>
+        <div class="trust-badge"><i class="fa-solid fa-microscope"></i> Modern Equipment</div>
+        <div class="trust-badge"><i class="fa-solid fa-shield-halved"></i> Hygienic Care</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-img-placeholder">
+          <i class="fa-solid fa-tooth"></i>
+          <p>Professional Dental Care</p>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Happy Patients</div></div>
+          <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Years Experience</div></div>
+          <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Satisfaction Rate</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-img reveal"><i class="fa-solid fa-hospital-user"></i></div>
+      <div class="reveal">
+        <div class="section-tag">About Us</div>
+        <h2 class="section-title">Caring for Your Smile with Expertise & Heart</h2>
+        <p style="color:var(--gray);line-height:1.8;margin-bottom:1rem;">At GUMS Dental Clinic, we believe exceptional dental care goes beyond the chair. Located in the vibrant heart of Sliema, Malta, our clinic was founded with a clear mission: to make world-class dentistry accessible, comfortable, and anxiety-free.</p>
+        <p style="color:var(--gray);line-height:1.8;">Our team of highly qualified dental professionals uses only the latest diagnostic and treatment technologies to deliver precise, long-lasting results — all within a warm, welcoming environment designed around patient comfort.</p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div><h4>Patient-First Care</h4><p>Your comfort and wellbeing are at the centre of everything we do.</p></div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon"><i class="fa-solid fa-microscope"></i></div>
+            <div><h4>Advanced Technology</h4><p>Digital X-rays, modern tools & evidence-based treatments.</p></div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div><h4>Sterilisation Standards</h4><p>Hospital-grade hygiene protocols on every visit.</p></div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon"><i class="fa-solid fa-star"></i></div>
+            <div><h4>Certified Professionals</h4><p>Fully qualified, continuously trained dental team.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="section-tag">Our Services</div>
+      <h2 class="section-title">Comprehensive Dental Treatments</h2>
+      <p class="section-sub">From routine check-ups to complex restorations, we offer a full range of dental services tailored to your needs.</p>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-teeth"></i></div>
+        <h3>General Dentistry</h3>
+        <p>Comprehensive check-ups, fillings, and preventive care to keep your teeth healthy and strong for life.</p>
+        <a href="#booking" class="learn-more">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
+        <h3>Teeth Cleaning</h3>
+        <p>Professional scaling and polishing to remove tartar, plaque, and surface stains for a fresh, clean smile.</p>
+        <a href="#booking" class="learn-more">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-star-of-life"></i></div>
+        <h3>Teeth Whitening</h3>
+        <p>Safe, clinically proven whitening treatments that brighten your smile by several shades in a single session.</p>
+        <a href="#booking" class="learn-more">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-syringe"></i></div>
+        <h3>Root Canal Treatment</h3>
+        <p>Modern, painless root canal therapy that saves infected teeth and relieves pain with precision and care.</p>
+        <a href="#booking" class="learn-more">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+        <h3>Dental Implants</h3>
+        <p>Permanent, natural-looking implants that restore missing teeth and rebuild your confidence to smile freely.</p>
+        <a href="#booking" class="learn-more">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <h3>Cosmetic Dentistry</h3>
+        <p>Veneers, bonding, and smile makeovers designed to give you the flawless, radiant smile you deserve.</p>
+        <a href="#booking" class="learn-more">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="booking-inner">
+      <div class="reveal">
+        <div class="section-tag">Appointments</div>
+        <h2>Book Your Visit Today</h2>
+        <p>Schedule an appointment online in minutes. Our team will confirm your booking and ensure everything is ready for your visit.</p>
+        <div class="booking-contact">
+          <a href="tel:+35699698738"><i class="fa-solid fa-phone"></i> +356 9969 8738</a>
+          <a href="https://maps.app.goo.gl/1HLHMiEfnRftnahu5" target="_blank"><i class="fa-solid fa-location-dot"></i> Level 2, Remedies Pharmacy & Wellness Hub,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;133 Triq Rodolfu, Sliema, Malta</a>
+          <a href="#hours"><i class="fa-regular fa-clock"></i> Mon–Sat: 9:00 AM – 7:00 PM</a>
+        </div>
+      </div>
+      <div class="form-card reveal">
+        <h3>Request an Appointment</h3>
+        <div id="bookingForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Full Name *</label>
+              <input type="text" id="fname" placeholder="Your full name" required/>
+            </div>
+            <div class="form-group">
+              <label for="fphone">Phone Number *</label>
+              <input type="tel" id="fphone" placeholder="+356 ···"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="femail">Email Address *</label>
+            <input type="email" id="femail" placeholder="you@email.com"/>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fdate">Preferred Date *</label>
+              <input type="date" id="fdate"/>
+            </div>
+            <div class="form-group">
+              <label for="ftime">Preferred Time *</label>
+              <select id="ftime">
+                <option value="">Select time</option>
+                <option>9:00 AM</option><option>10:00 AM</option><option>11:00 AM</option>
+                <option>12:00 PM</option><option>2:00 PM</option><option>3:00 PM</option>
+                <option>4:00 PM</option><option>5:00 PM</option><option>6:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fservice">Service Required</label>
+            <select id="fservice">
+              <option value="">Select a service</option>
+              <option>General Dentistry</option><option>Teeth Cleaning</option>
+              <option>Teeth Whitening</option><option>Root Canal Treatment</option>
+              <option>Dental Implants</option><option>Cosmetic Dentistry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fmsg">Additional Notes</label>
+            <textarea id="fmsg" placeholder="Any specific concerns or questions…"></textarea>
+          </div>
+          <button class="btn-submit" onclick="submitForm()"><i class="fa-solid fa-paper-plane"></i> Confirm Appointment</button>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <i class="fa-solid fa-circle-check"></i>
+          <h4>Appointment Request Sent!</h4>
+          <p>Thank you! We'll confirm your appointment within 24 hours. See you at GUMS Dental Clinic!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<section class="hours" id="hours">
+  <div class="container">
+    <div class="hours-inner">
+      <div class="reveal">
+        <div class="section-tag" style="background:rgba(40,182,176,0.15);color:var(--teal);">Opening Hours</div>
+        <h2 class="section-title">When We're Here for You</h2>
+        <p class="section-sub">Visit us during our convenient opening hours. We recommend booking in advance to secure your preferred slot.</p>
+        <div class="hours-list">
+          <div class="hours-item"><span class="hours-day">Monday</span><span class="hours-time">9:00 AM – 7:00 PM</span></div>
+          <div class="hours-item"><span class="hours-day">Tuesday</span><span class="hours-time">9:00 AM – 7:00 PM</span></div>
+          <div class="hours-item"><span class="hours-day">Wednesday</span><span class="hours-time">9:00 AM – 7:00 PM</span></div>
+          <div class="hours-item"><span class="hours-day">Thursday</span><span class="hours-time">9:00 AM – 7:00 PM</span></div>
+          <div class="hours-item"><span class="hours-day">Friday</span><span class="hours-time">9:00 AM – 7:00 PM</span></div>
+          <div class="hours-item"><span class="hours-day">Saturday</span><span class="hours-time">9:00 AM – 7:00 PM</span></div>
+          <div class="hours-item closed"><span class="hours-day">Sunday</span><span class="hours-time" style="color:rgba(255,255,255,.4);">Closed</span></div>
+        </div>
+      </div>
+      <div class="hours-visual reveal">
+        <div class="clock-ring"><i class="fa-regular fa-clock"></i></div>
+        <div class="clock-text">
+          <p style="font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:.3rem;">Monday – Saturday</p>
+          <p>9:00 AM to 7:00 PM</p>
+        </div>
+        <a href="#booking" class="btn-primary"><i class="fa-regular fa-calendar-check"></i> Book an Appointment</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-tag">Find Us</div>
+      <h2 class="section-title">Visit Our Clinic</h2>
+      <p class="section-sub">Conveniently located in Sliema, inside the Remedies Pharmacy & Wellness Hub.</p>
+    </div>
+    <div class="location-inner reveal">
+      <div class="map-container">
+        <iframe
+          src="https://maps.google.com/maps?q=133+Triq+Rodolfu,+Sliema,+Malta&output=embed"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="GUMS Dental Clinic Location">
+        </iframe>
+      </div>
+      <div class="location-info">
+        <div class="location-detail">
+          <div class="location-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <h4>Address</h4>
+            <p>Level 2, Remedies Pharmacy & Wellness Hub<br>133 Triq Rodolfu, Sliema, Malta</p>
+          </div>
+        </div>
+        <div class="location-detail">
+          <div class="location-detail-icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <h4>Phone</h4>
+            <a href="tel:+35699698738">+356 9969 8738</a>
+          </div>
+        </div>
+        <div class="location-detail">
+          <div class="location-detail-icon"><i class="fa-regular fa-clock"></i></div>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>Monday – Saturday: 9:00 AM – 7:00 PM<br>Sunday: Closed</p>
+          </div>
+        </div>
+        <a href="https://maps.app.goo.gl/1HLHMiEfnRftnahu5" target="_blank" class="btn-primary" style="margin-top:1rem;display:inline-flex;">
+          <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="section-tag">Testimonials</div>
+      <h2 class="section-title">What Our Patients Say</h2>
+      <p class="section-sub">Real experiences from real patients — we're proud to be a trusted part of the Sliema community.</p>
+    </div>
+    <div class="testimonials-grid reveal">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Absolutely fantastic experience. The staff were welcoming from the moment I walked in. My teeth cleaning was thorough and painless. I'll definitely be coming back!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">M</div>
+          <div><div class="author-name">Maria Camilleri</div><div class="author-location">Sliema, Malta</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"I was nervous about my root canal but the dentist made me feel completely at ease. No pain during or after. GUMS is hands down the best dental clinic I've visited."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">J</div>
+          <div><div class="author-name">James Farrugia</div><div class="author-location">Valletta, Malta</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Had teeth whitening done and the results were incredible! The clinic is spotlessly clean and modern. Booking was easy and the team was so professional."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">S</div>
+          <div><div class="author-name">Sarah Borg</div><div class="author-location">St Julian's, Malta</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Got my dental implants done here and I couldn't be happier. The whole process was explained step by step, everything was stress-free. Highly recommend GUMS!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">R</div>
+          <div><div class="author-name">Robert Azzopardi</div><div class="author-location">Msida, Malta</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Such a refreshing experience. The environment is calm, the staff are caring, and the quality of treatment is exceptional. My whole family now comes here!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">A</div>
+          <div><div class="author-name">Angela Mifsud</div><div class="author-location">Gzira, Malta</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Visited for a cosmetic consultation and left feeling so informed and confident. The dentist was honest and thorough. This is the kind of clinic you keep coming back to."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">D</div>
+          <div><div class="author-name">Daniel Vella</div><div class="author-location">Swieqi, Malta</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="section-tag">FAQ</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-sub">Have a question? We've got answers. If you don't find what you're looking for, feel free to call us.</p>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is an appointment required to visit the clinic? <i class="fa-solid fa-plus"></i></div>
+        <div class="faq-a">Yes, we recommend booking an appointment to minimise your waiting time and ensure a dentist is available to give you their full attention. You can book online, by phone, or via WhatsApp.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Do you accept walk-in patients? <i class="fa-solid fa-plus"></i></div>
+        <div class="faq-a">We do accept walk-ins where possible, however availability cannot be guaranteed without an appointment. For urgent dental needs, please call us directly on +356 9969 8738 and we'll do our best to accommodate you.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What treatments and services do you offer? <i class="fa-solid fa-plus"></i></div>
+        <div class="faq-a">We offer a comprehensive range of dental services including general dentistry, professional teeth cleaning, teeth whitening, root canal treatment, dental implants, and cosmetic dentistry. Our team is experienced in both preventive and restorative care.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How long does a typical dental visit take? <i class="fa-solid fa-plus"></i></div>
+        <div class="faq-a">A routine check-up or cleaning usually takes between 30 to 60 minutes. More complex procedures such as root canals or implant consultations may take longer. We'll always give you a clear time estimate when you book your appointment.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is dental treatment painful at GUMS Clinic? <i class="fa-solid fa-plus"></i></div>
+        <div class="faq-a">We prioritise your comfort at every step. We use modern anaesthetic techniques and sedation options where needed to ensure procedures are as comfortable and painless as possible. Many of our patients are pleasantly surprised at how relaxed they feel.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How can I prepare for my first visit? <i class="fa-solid fa-plus"></i></div>
+        <div class="faq-a">For your first visit, simply arrive a few minutes early. It helps to bring any previous dental records or X-rays if you have them. Let us know of any medical conditions or medications you're taking, so we can tailor your care appropriately.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="section-tag">Get in Touch</div>
+      <h2 class="section-title">We're Here to Help</h2>
+      <p class="section-sub">Reach out by phone, WhatsApp, or visit us in person. We'd love to hear from you.</p>
+    </div>
+    <div class="contact-grid reveal">
+      <div class="contact-card">
+        <div class="contact-icon blue"><i class="fa-solid fa-phone"></i></div>
+        <h3>Call Us</h3>
+        <p>Our team is available during clinic hours to assist you with appointments and enquiries.</p>
+        <a href="tel:+35699698738" style="display:block;margin-top:.5rem;font-weight:600;color:var(--navy);">+356 9969 8738</a>
+        <a href="tel:+35699698738" class="contact-btn blue-btn"><i class="fa-solid fa-phone"></i> Call Now</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon green"><i class="fa-brands fa-whatsapp"></i></div>
+        <h3>WhatsApp</h3>
+        <p>Send us a message on WhatsApp for quick enquiries, appointment confirmations, or any questions.</p>
+        <a href="https://wa.me/35699698738" style="display:block;margin-top:.5rem;font-weight:600;color:var(--navy);">Chat on WhatsApp</a>
+        <a href="https://wa.me/35699698738" target="_blank" class="contact-btn wa-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon teal"><i class="fa-solid fa-location-dot"></i></div>
+        <h3>Visit Us</h3>
+        <p>Level 2, Remedies Pharmacy & Wellness Hub, 133 Triq Rodolfu, Sliema, Malta</p>
+        <a href="https://maps.app.goo.gl/1HLHMiEfnRftnahu5" target="_blank" style="display:block;margin-top:.5rem;font-weight:600;color:var(--navy);">View on Maps</a>
+        <a href="https://maps.app.goo.gl/1HLHMiEfnRftnahu5" target="_blank" class="contact-btn teal-btn"><i class="fa-solid fa-diamond-turn-right"></i> Get Directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" style="margin-bottom:.5rem;">
+          <div class="logo-icon"><i class="fa-solid fa-tooth"></i></div>
+          <span class="logo-text" style="color:#fff;">GUMS <span>Dental</span></span>
+        </a>
+        <p>Expert dental care in the heart of Sliema, Malta. Committed to your smile and your wellbeing.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/35699698738" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#booking">Book Appointment</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">General Dentistry</a></li>
+          <li><a href="#services">Teeth Cleaning</a></li>
+          <li><a href="#services">Teeth Whitening</a></li>
+          <li><a href="#services">Root Canal</a></li>
+          <li><a href="#services">Dental Implants</a></li>
+          <li><a href="#services">Cosmetic Dentistry</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact & Hours</h4>
+        <ul>
+          <li><span><i class="fa-solid fa-phone" style="width:14px;margin-right:6px;color:var(--teal)"></i> +356 9969 8738</span></li>
+          <li><span><i class="fa-solid fa-location-dot" style="width:14px;margin-right:6px;color:var(--teal)"></i> Sliema, Malta</span></li>
+          <li><span><i class="fa-regular fa-clock" style="width:14px;margin-right:6px;color:var(--teal)"></i> Mon–Sat: 9 AM – 7 PM</span></li>
+          <li><span><i class="fa-regular fa-clock" style="width:14px;margin-right:6px;color:var(--teal)"></i> Sun: Closed</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 GUMS Dental Clinic, Sliema, Malta. All rights reserved.</span>
+      <span>Designed with care for your smile ♥</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BOOK NOW -->
+<a href="#booking" class="float-btn"><i class="fa-regular fa-calendar-check"></i> Book Now</a>
+
+<script>
+  // Navbar scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Hamburger
+  const ham = document.getElementById('hamburger');
+  const mob = document.getElementById('mobileMenu');
+  ham.addEventListener('click', () => mob.classList.toggle('open'));
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mob.classList.remove('open')));
+
+  // FAQ
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Form submit
+  function submitForm() {
+    const name = document.getElementById('fname').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    const date = document.getElementById('fdate').value;
+    if (!name || !phone || !email || !date) {
+      alert('Please fill in all required fields (Name, Phone, Email, Date).');
+      return;
+    }
+    document.getElementById('bookingForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
